@@ -32,7 +32,7 @@ class Recipe(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     updated_on = models.DateTimeField(auto_now=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    categories = models.ManyToManyField(Category)
 
     class Meta:
         ordering = ["-created_on"]

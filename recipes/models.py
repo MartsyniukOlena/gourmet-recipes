@@ -29,9 +29,10 @@ class Recipe(models.Model):
         (DIFFICULT, 'Difficult'),
     ]
     difficulty_level = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES)
-    created_on = models.DateTimeField(auto_now_add=True)
+    servings = models.IntegerField(choices=STATUS, default=0)
+    created_on = models.DateField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    updated_on = models.DateTimeField(auto_now=True)
+    updated_on = models.DateField(auto_now=True)
     categories = models.ManyToManyField(Category)
 
     class Meta:
